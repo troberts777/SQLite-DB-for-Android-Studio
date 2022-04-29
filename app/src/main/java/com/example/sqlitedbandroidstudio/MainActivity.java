@@ -36,7 +36,19 @@ public class MainActivity extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Add Button", Toast.LENGTH_SHORT).show();
+
+                try {
+                    CustomerModel customerModel = new CustomerModel(-1, et_name.getText().toString(),
+                            et_email.getText().toString(), et_pass.getText().toString(), sw_active_user.isChecked());
+                    Toast.makeText(MainActivity.this, customerModel.toString(), Toast.LENGTH_SHORT).show();
+                }
+
+                catch (Exception e){
+
+                    Toast.makeText(MainActivity.this, "Error Creating Account", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
 
